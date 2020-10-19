@@ -3,6 +3,14 @@ name: test-ci
 on: push
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker-practice/actions-setup-docker@master
+        with:
+          docker_channel: stable
+      - run: |
+          docker run ubuntu:20.04
   test:
     runs-on: ubuntu-latest
     steps:

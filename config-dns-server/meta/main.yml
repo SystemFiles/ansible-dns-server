@@ -1,6 +1,6 @@
 galaxy_info:
   author: Benjamin Sykes
-  description: Installs and configure a DNS server on Ubuntu
+  description: Installs and configure a DNS server
   company: Sykes Dev
   license: Apache-2.0
   min_ansible_version: 2.8

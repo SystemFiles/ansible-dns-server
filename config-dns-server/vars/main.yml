@@ -1,10 +1,22 @@
----
-# vars file for config-dns-pi
+# vars file for config-dns-server
 
+# Directory for the DNS cache
 bind_directory: /var/cache/bind
+
+# What address shall be configured for this DNS server host
 dns_server_address: 127.0.0.1
+
+# Which secondary DNS server (default: google) shall be used to find anything not found in primary DNS server (this)
 forwarding_dns_server: 8.8.8.8
+
+# Used to identify / configure the zone for a subnet running this DNS server
+# If you have a 192.168.0.0/16 then then you would use the reversed octet 168.192. If you use 10.128.0.0/16 you would use 128.10 here
 subnet_reversed_octet: 168.192
 
+# List of zones to be created in DNS configuration
+# host_name: name of computer/server on the network
+# host_address: The static IP address of the computer/server on the network
+# domain: The domain name for the network
+# All together: host_name.domain => host_address
 zone_hosts:
   - { host_name: webserver, host_address: 192.168.0.107, domain: sykeshome }

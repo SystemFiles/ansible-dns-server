@@ -1,6 +1,9 @@
 ---
 # Tasks for installing and configuring DNS Server
 
+- name: Load vars from file
+  include_vars:
+    file: main.yml
 - name: Include ubuntu tasks
   include_tasks: "ubuntu.yml"
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'

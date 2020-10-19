@@ -6,10 +6,12 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "{{ domain_name }}" {
+{% for host in zone_hosts -%}
+zone "{{ host.domain }}" {
         type master;
-        file "/etc/bind/zones/db.{{ domain_name }}";
+        file "/etc/bind/zones/db.{{ host.domain }}";
 };
+{% endfor %}
 
 zone "{{ subnet_reversed_octet }}.in-addr.arpa" {
         type master;

@@ -2,7 +2,7 @@
 # Tasks for templating and setting up host config
 
 - name: Template named configrations
-  copy:
+  template:
     src: "{{ role_path }}/templates/{{ item }}.j2"
     dest: "/etc/bind/{{ item }}"
     force: true
@@ -15,7 +15,13 @@
     state: directory
     mode: "0755"
 - name: Template zone configurations
-  copy:
+  vars:
+    domain: "{{ item.domain }}"
+    host_name: "{{ item.host_name }}"
+    host_address: "{{ item.host_address }}"
+  template:
     src: "{{ role_path }}/templates/zone.config.j2"
-    dest: "/etc/bind/zones/db.{{ domain_name }}"
+    dest: "/etc/bind/zones/db.{{ item.domain }}"
     force: true
+  with_items:
+    - "{{ zone_hosts }}"

@@ -1,18 +1,18 @@
 ;
-; BIND data file for {{ domain_name }}
+; BIND data file for {{ domain }}
 ;
 $TTL    604800
-@       IN      SOA     {{ domain_name }}. admin.{{ domain_name }}. (
+@       IN      SOA     {{ domain }}. admin.{{ domain }}. (
                               3         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ; name servers - NS records
-        IN      NS      ns1.{{ domain_name }}.
+        IN      NS      ns1.{{ domain }}.
 
 ; name servers - A records
-ns1.{{ domain_name }}.        IN      A       127.0.0.1
+ns1.{{ domain }}.        IN      A       127.0.0.1
 
 ; HOSTS - A records
-{{ privary_host_name }}.{{ domain_name }}.  IN      A       {{ primary_host_address }}
+{{ host_name }}.{{ domain }}.  IN      A       {{ host_address }}

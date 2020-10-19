@@ -1,19 +1,2 @@
 ---
 # defaults file for config-dns-pi
-
-### ---- [ CONFIG ] ---- ###
-
-# -- named.conf.options -- #
-bind_directory: /var/cache/bind
-forwarding_dns_server: 8.8.8.8
-
-# -- named.conf.local -- #
-subnet_reversed_octet: 168.192
-
-# -- db.sykeshome.j2 -- #
-# Main options
-domain_name: sykeshome
-
-# Host and address
-primary_host_address: 192.168.0.107
-privary_host_name: webserver

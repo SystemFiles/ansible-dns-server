@@ -10,15 +10,5 @@ jobs:
         with:
           docker_channel: stable
       - run: |
-          docker run ubuntu:20.04
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: setup-docker
-        uses: docker-practice/actions-setup-docker@1.0.2
-      - name: DEBUG
-        run: ls -l
-      - name: build test image
-        run: docker build -t ansible-dev-local:latest -f Dockerfile.test ./
-      - name: run the test on docker container
-        run: docker run -t ansible-dev-local:latest
+          docker build -t ansible-dev-local:latest -f Dockerfile.test ./ && \
+          docker run -t ansible-dev-local:latest

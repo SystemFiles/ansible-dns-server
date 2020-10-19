@@ -2,12 +2,9 @@
 # vars file for config-dns-pi
 
 bind_directory: /var/cache/bind
+dns_server_address: 127.0.0.1
 forwarding_dns_server: 8.8.8.8
 subnet_reversed_octet: 168.192
-
-domain_name: sykeshome
-primary_host_address: 192.168.0.107
-privary_host_name: webserver
 
 zone_hosts:
   - { host_name: webserver, host_address: 192.168.0.107, domain: sykeshome }

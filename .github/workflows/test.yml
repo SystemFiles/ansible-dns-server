@@ -14,6 +14,9 @@ jobs:
         uses: docker-practice/actions-setup-docker@master
         with:
           docker_channel: stable
-      - run: |
-          docker build -t ansible-dev-local:latest -f ./Dockerfile.test ./ && \
+      - name: Build test container image
+        run: |
+          docker build -t ansible-dev-local:latest -f ./Dockerfile.test
+      - name: Run the test on docker container
+        run: |
           docker run -t ansible-dev-local:latest

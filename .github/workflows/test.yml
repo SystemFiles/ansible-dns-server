@@ -6,11 +6,14 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code from master
+        uses: actions/checkout@v2
+        with:
+          ref: master
       - name: Docker setup
         uses: docker-practice/actions-setup-docker@master
         with:
           docker_channel: stable
       - run: |
-          ls -lR ../
           docker build -t ansible-dev-local:latest -f ./Dockerfile.test ./ && \
           docker run -t ansible-dev-local:latest

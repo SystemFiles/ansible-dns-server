@@ -1,0 +1,27 @@
+---
+# Tasks for installing and configuring DNS Server on Ubuntu 20.04
+
+- name: Make sure everything is up to date
+  apt:
+    name: "*"
+    state: latest
+- name: Install bind9
+  apt:
+    name: bind9
+    state: present
+- name: Install dnsutils and systemctl
+  apt:
+    name: ["dnsutils", "systemctl", "nano"]
+    state: present
+- name: Include hostconfig tasks
+  include_tasks: "hostconfig.yml"
+  when: bind_running is defined
+- name: Start the bind9 service
+  systemd:
+    name: bind9
+    state: started
+  register: bind_running
+- name: Enable the bind9 service on restart
+  systemd:
+    name: bind9
+    enabled: true

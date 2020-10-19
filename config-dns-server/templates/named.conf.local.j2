@@ -1,0 +1,17 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "{{ domain_name }}" {
+        type master;
+        file "/etc/bind/zones/db.{{ domain_name }}";
+};
+
+zone "{{ subnet_reversed_octet }}.in-addr.arpa" {
+        type master;
+        file "/etc/bind/zones/db.{{ subnet_reversed_octet }}";
+};

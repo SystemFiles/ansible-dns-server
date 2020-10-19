@@ -1,0 +1,11 @@
+FROM ubuntu:20.04
+
+RUN apt update && apt install -y ansible
+RUN mkdir -p /ansible-plays/
+
+WORKDIR /
+COPY ./install_configure_play.yml ./ansible-plays/
+COPY ./config-dns-server/ /etc/ansible/roles/config-dns-server/
+
+# Run the play (CAN BE OVERIDDEN)
+CMD [ "ansible-playbook", "./ansible-plays/install_configure_play.yml" ]

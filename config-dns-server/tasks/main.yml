@@ -1,0 +1,28 @@
+---
+# Tasks for installing and configuring DNS Server
+
+- name: Make sure everything is up to date
+  apt:
+    name: "*"
+    state: latest
+- name: Install bind9
+  apt:
+    name: bind9
+    state: present
+- name: Install dnsutils and systemctl
+  apt:
+    name: ["dnsutils", "systemctl", "nano"]
+    state: present
+- name: Copy named.conf.options to /etc/bind/
+  copy:
+    src: "{{ role_path }}/files/named.conf.options"
+    dest: /etc/bind/named.conf.options
+    force: true
+- name: Start the bind9 service
+  systemd:
+    name: bind9
+    state: started
+- name: Enable the bind9 service on restart
+  systemd:
+    name: bind9
+    enabled: true

@@ -6,9 +6,10 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: docker-practice/actions-setup-docker@master
+      - name: Docker setup
+        uses: docker-practice/actions-setup-docker@master
         with:
           docker_channel: stable
       - run: |
-          docker build -t ansible-dev-local:latest -f ./Dockerfile.test ./ && \
+          docker build -t ansible-dev-local:latest -f ../Dockerfile.test ./ && \
           docker run -t ansible-dev-local:latest

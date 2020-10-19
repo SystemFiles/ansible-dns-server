@@ -8,11 +8,10 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)](https://sykesdev.ca/projects/)
+[![Build Status](https://github.com/actions/toolkit/workflows/ci/badge.svg)](https://github.com/actions/toolkit/actions?query=workflow%3Aci)
 [![GitHub Issues](https://img.shields.io/github/issues/systemfiles/ansible-dns-server.svg)](https://github.com/SystemFiles/ansible-dns-server/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/systemfiles/ansible-dns-server.svg)](https://github.com/SystemFiles/ansible-dns-server/issues)
 [![License](https://img.shields.io/badge/license-Apache2.0-blue.svg)](/LICENSE)
-
-</div>
 
 ---
 

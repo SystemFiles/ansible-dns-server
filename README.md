@@ -13,6 +13,8 @@
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/systemfiles/ansible-dns-server.svg)](https://github.com/SystemFiles/ansible-dns-server/issues)
 [![License](https://img.shields.io/badge/license-Apache2.0-blue.svg)](/LICENSE)
 
+</div>
+
 ---
 
 <p align="center"> Simple ansible configuration role to install and configure a DNS server

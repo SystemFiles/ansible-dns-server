@@ -77,7 +77,7 @@ First fork the repository and make your customizations to the `config-dns-server
 ```yml
 
 ---
-# vars file for config-dns-pi
+# vars file for config-dns-server
 
 # Directory for the DNS cache
 bind_directory: /var/cache/bind
@@ -92,13 +92,22 @@ forwarding_dns_server: 8.8.8.8
 # If you have a 192.168.0.0/16 then then you would use the reversed octet 168.192. If you use 10.128.0.0/16 you would use 128.10 here
 subnet_reversed_octet: 168.192
 
-# List of zones to be created in DNS configuration
+# List of zone configs to be created in DNS configuration
+# available_zone_domains: List of all domains this DNS server will resolve
 # host_name: name of computer/server on the network
 # host_address: The static IP address of the computer/server on the network
-# domain: The domain name for the network
+# domain: The domain that this host_name is a part of on the network
 # All together: host_name.domain => host_address
+available_zone_domains:
+  - sykeshome
+  - sykesdev
 zone_hosts:
   - { host_name: webserver, host_address: 192.168.0.107, domain: sykeshome }
+  - { host_name: mac, host_address: 192.168.0.113, domain: sykesdev}
+  - { host_name: bad, host_address: 192.168.0.117, domain: sykesdev}
+  - { host_name: bob, host_address: 192.168.0.133, domain: sykeshome}
+  - { host_name: good, host_address: 192.168.0.140, domain: sykesdev}
+
 
 ```
 

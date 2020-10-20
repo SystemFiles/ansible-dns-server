@@ -6,10 +6,10 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-{% for host in zone_hosts -%}
-zone "{{ host.domain }}" {
+{% for domain in available_zone_domains -%}
+zone "{{ domain }}" {
         type master;
-        file "/etc/bind/zones/db.{{ host.domain }}";
+        file "/etc/bind/zones/db.{{ domain }}";
 };
 {% endfor %}
 

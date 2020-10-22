@@ -4,4 +4,4 @@
   connection: local
   become: true
   roles:
-    - config-dns-server
+    - ansible-dns-server

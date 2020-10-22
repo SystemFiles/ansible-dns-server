@@ -2,7 +2,7 @@
 # Run test on docker container
 
 echo "---- [ Starting test ] ----"
-ansible-playbook ./ansible-plays/install_configure_play.yml
+ansible-playbook ./ansible-plays/playbook.yml
 
 # Test commands to verify resolution is working
 dig webserver.sykeshome @127.0.0.1

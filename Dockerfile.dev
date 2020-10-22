@@ -4,8 +4,8 @@ RUN apt update && apt install -y ansible
 RUN mkdir -p /ansible-plays/
 
 WORKDIR /
-COPY ./install_configure_play.yml ./ansible-plays/
-COPY ./config-dns-server/ /etc/ansible/roles/config-dns-server/
+COPY ./playbook.yml ./ansible-plays/
+COPY ./ansible-dns-server/ /etc/ansible/roles/ansible-dns-server/
 
 # Run the play (CAN BE OVERIDDEN)
-CMD [ "ansible-playbook", "./ansible-plays/install_configure_play.yml" ]
+CMD [ "ansible-playbook", "./ansible-plays/playbook.yml" ]

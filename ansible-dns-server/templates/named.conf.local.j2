@@ -11,6 +11,7 @@ zone "{{ domain }}" {
         type master;
         file "/etc/bind/zones/db.{{ domain }}";
 };
+
 {% endfor %}
 
 zone "{{ subnet_reversed_octet }}.in-addr.arpa" {

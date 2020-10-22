@@ -11,16 +11,15 @@
     state: present
 - name: Install dnsutils and systemctl
   apt:
-    name: ["dnsutils", "systemctl", "nano"]
+    name: [ "dnsutils" ]
     state: present
 - name: Include hostconfig tasks
   include_tasks: "hostconfig.yml"
-- name: Start the bind9 service
-  systemd:
-    name: bind9
-    state: started
-  register: bind_running
 - name: Enable the bind9 service on restart
   systemd:
     name: bind9
     enabled: true
+- name: Restart the bind9 service (apply config)
+  systemd:
+    name: bind9
+    state: restarted

@@ -42,15 +42,15 @@ Create a Dockerfile similar to the [provided one](/Dockerfile.dev) in this repo.
 
 FROM ubuntu:20.04
 
-RUN apt update && apt install -y ansible
+RUN apt update && apt install -y ansible systemctl
 RUN mkdir -p /ansible-plays/
 
 WORKDIR /
-COPY ./install_configure_play.yml ./ansible-plays/
-COPY ./config-dns-server/ /etc/ansible/roles/config-dns-server/
+COPY ./playbook.yml ./ansible-plays/
+COPY . /etc/ansible/roles/ansible-dns-server/
 
 # Run the play (CAN BE OVERIDDEN)
-CMD [ "ansible-playbook", "./ansible-plays/install_configure_play.yml" ]
+CMD [ "ansible-playbook", "./ansible-plays/playbook.yml" ]
 
 ```
 
@@ -106,9 +106,7 @@ available_zone_domains:
 zone_hosts:
   - { host_name: webserver, host_address: 192.168.0.107, domain: sykeshome }
   - { host_name: mac, host_address: 192.168.0.113, domain: sykesdev}
-  - { host_name: bad, host_address: 192.168.0.117, domain: sykesdev}
   - { host_name: bob, host_address: 192.168.0.133, domain: sykeshome}
-  - { host_name: good, host_address: 192.168.0.140, domain: sykesdev}
 
 
 ```

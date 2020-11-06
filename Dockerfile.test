@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt update && apt install -y ansible
+RUN apt update && apt install -y ansible systemctl
 RUN mkdir -p /ansible-plays/
 
 WORKDIR /

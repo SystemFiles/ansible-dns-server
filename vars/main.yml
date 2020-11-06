@@ -22,5 +22,8 @@ subnet_reversed_octet: 168.192
 available_zone_domains:
   - sykeshome.io
 zone_hosts:
-  - { host_name: media, host_address: 192.168.0.104, domain: sykeshome.io }
-  - { host_name: nas, host_address: 192.168.0.104, domain: sykeshome.io }
+  - { host_name: plex, host_address: 192.168.0.104, domain: sykeshome.io }
+  - { host_name: deluge, host_address: 192.168.0.104, domain: sykeshome.io }
+  - { host_name: sonarr, host_address: 192.168.0.104, domain: sykeshome.io }
+  - { host_name: radarr, host_address: 192.168.0.104, domain: sykeshome.io }
+  - { host_name: jackett, host_address: 192.168.0.104, domain: sykeshome.io }
